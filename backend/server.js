@@ -721,13 +721,27 @@ app.post('/api/cashiers', (req, res) => {
   try {
     const { id, password, telegramId, venueId, venueName } = req.body
     
-    // Check if cashier already exists
-    const existing = db.prepare('SELECT id FROM cashiers WHERE id = ?').get(id)
-    if (existing) {
-      return res.status(400).json({ error: 'Cashier with this ID already exists' })
+    if (!id || !password || !venueId) {
+      return res.status(400).json({ error: 'ID, password, and venueId are required' })
     }
     
-    // Check if telegramId already exists
+    // Check if cashier already exists
+    const existing = db.prepare('SELECT id, venueId FROM cashiers WHERE id = ?').get(id)
+    if (existing) {
+      // If cashier exists and belongs to the same venue, update password
+      if (existing.venueId === venueId) {
+        db.prepare(`
+          UPDATE cashiers 
+          SET password = ?, venueName = ?, telegramId = ?
+          WHERE id = ?
+        `).run(password, venueName, telegramId || null, id)
+        return res.json({ id, telegramId, venueId, venueName, updated: true })
+      } else {
+        return res.status(400).json({ error: 'Cashier with this ID already exists in another venue' })
+      }
+    }
+    
+    // Check if telegramId already exists (only if provided)
     if (telegramId) {
       const existingByTelegram = db.prepare('SELECT id FROM cashiers WHERE telegramId = ?').get(telegramId)
       if (existingByTelegram) {

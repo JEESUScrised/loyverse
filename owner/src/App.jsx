@@ -52,6 +52,12 @@ function AppContent() {
       
       setTelegramId(userId)
       
+      // Skip API calls for default_owner (development fallback)
+      if (userId === 'default_owner') {
+        setLoading(false)
+        return
+      }
+      
       // Authenticate owner
       if (initData) {
         try {
@@ -78,6 +84,11 @@ function AppContent() {
             }
           } catch (e) {
             console.error('Error fetching owner:', e)
+            // Don't set accessDenied for 404, just show registration
+            if (e.message && e.message.includes('not found')) {
+              setLoading(false)
+              return
+            }
             setAccessDenied(true)
             setLoading(false)
             return
@@ -96,6 +107,11 @@ function AppContent() {
           }
         } catch (e) {
           console.error('Error fetching owner:', e)
+          // Don't show error for 404, just allow registration
+          if (e.message && e.message.includes('not found')) {
+            setLoading(false)
+            return
+          }
         }
       }
       

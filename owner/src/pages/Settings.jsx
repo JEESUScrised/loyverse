@@ -67,9 +67,18 @@ function Settings({ venueId, onVenueUpdated }) {
     } catch (error) {
       console.error('Error adding cashier:', error)
       if (error.message.includes('already exists')) {
-        alert('Кассир с таким ID уже существует')
+        if (error.message.includes('another venue')) {
+          alert('Кассир с таким ID уже существует в другом заведении')
+        } else {
+          alert('Кассир с таким ID уже существует. Пароль обновлен.')
+          // Refresh cashiers list even on update
+          const cashiersData = await api.getCashiers(venueId)
+          setCashiers(cashiersData)
+          setNewCashier({ id: '', password: '' })
+          setShowAddCashier(false)
+        }
       } else {
-        alert('Ошибка создания кассира')
+        alert('Ошибка создания кассира: ' + (error.message || 'Неизвестная ошибка'))
       }
     } finally {
       setLoading(false)
