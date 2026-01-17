@@ -1,0 +1,9 @@
+{
+  "name": "loyverse-shared",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "database.js",
+  "exports": {
+    ".": "./database.js"
+  }
+}

@@ -1,0 +1,268 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  background: var(--background);
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.settings-header {
+  text-align: center;
+  padding: 20px 16px;
+  background: var(--card-bg);
+  border-bottom: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.settings-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.settings-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 16px;
+  padding-bottom: calc(90px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settings-button {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.settings-button:hover {
+  background: var(--background-gray);
+}
+
+.settings-button-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  border-radius: 8px;
+  color: var(--primary-color);
+}
+
+.settings-button-content {
+  flex: 1;
+}
+
+.settings-button-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.settings-button-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.settings-button svg:last-child {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+}
+
+.settings-section {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.settings-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.settings-add-cashier-button {
+  width: 100%;
+  background: var(--primary-color);
+  border: none;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.settings-add-cashier-button:hover {
+  background: var(--primary-hover);
+}
+
+.settings-add-cashier-button:active {
+  transform: scale(0.98);
+}
+
+.add-cashier-form {
+  background: var(--background-gray);
+  border: 2px solid var(--border-light);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--background);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.submit-cashier-button {
+  background: var(--primary-color);
+  border: none;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-cashier-button:hover {
+  background: var(--primary-hover);
+}
+
+.submit-cashier-button:active {
+  transform: scale(0.98);
+}
+
+.cashiers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-tertiary);
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+}
+
+.cashier-item {
+  background: var(--background-gray);
+  border: 2px solid var(--border-light);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cashier-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cashier-id {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cashier-date {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.remove-cashier-button {
+  background: var(--error);
+  border: none;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-cashier-button:hover {
+  background: #C62828;
+}
+
+.remove-cashier-button:active {
+  transform: scale(0.95);
+}
+
+.settings-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+

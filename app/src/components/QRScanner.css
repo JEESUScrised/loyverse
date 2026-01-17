@@ -1,0 +1,231 @@
+.qr-scanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  animation: scannerFadeIn 0.3s ease-out;
+}
+
+@keyframes scannerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scanner-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  padding-bottom: 100px;
+  animation: contentSlideUp 0.3s ease-out;
+}
+
+@keyframes contentSlideUp {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
+    
+  }
+}
+
+.scanner-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.qr-reader {
+  width: 85vw;
+  max-width: 320px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 4px solid var(--primary-color);
+  
+  position: relative;
+  z-index: 2;
+  animation: qrReaderScaleIn 0.4s ease-out 0.1s both;
+}
+
+@keyframes qrReaderScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Стилизация для html5-qrcode элементов внутри */
+.qr-reader video,
+.qr-reader canvas {
+  border-radius: 8px;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.qr-reader #qr-shaded-region {
+  border-radius: 8px;
+}
+
+.scanner-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 24px 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 20;
+  text-align: center;
+  
+  animation: messagePopIn 0.3s ease-out;
+}
+
+@keyframes messagePopIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.scanner-message.success {
+  background: #E8F5E9;
+  border: 2px solid var(--success);
+  color: var(--success);
+}
+
+.scanner-message.error {
+  background: #FFEBEE;
+  border: 2px solid var(--error);
+  color: var(--error);
+}
+
+.scanner-hint {
+  position: absolute;
+  top: calc(20px + env(safe-area-inset-top));
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: center;
+  background: var(--card-bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 2px solid var(--card-border);
+  padding: 10px 18px;
+  border-radius: 8px;
+  
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  animation: hintFadeIn 0.3s ease-out 0.2s both;
+  z-index: 15;
+}
+
+@keyframes hintFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.scanner-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  z-index: 10;
+  animation: footerSlideUp 0.3s ease-out 0.15s both;
+}
+
+@keyframes footerSlideUp {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
+    
+  }
+}
+
+.back-button {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 48px;
+}
+
+.back-button:hover {
+  background: var(--background-gray);
+  
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+.back-button svg {
+  flex-shrink: 0;
+}
+
+
+

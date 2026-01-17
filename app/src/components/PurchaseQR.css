@@ -1,0 +1,127 @@
+.purchase-qr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.purchase-qr-container {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 90vw;
+  width: 100%;
+  max-width: 400px;
+  
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    
+    opacity: 0;
+  }
+  to {
+    
+    opacity: 1;
+  }
+}
+
+.purchase-qr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.purchase-qr-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.purchase-qr-close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.purchase-qr-close:hover {
+  background: var(--background-gray);
+  color: var(--text-primary);
+}
+
+.purchase-qr-close:active {
+  background: var(--background-gray);
+}
+
+.purchase-qr-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.purchase-qr-info {
+  text-align: center;
+  width: 100%;
+}
+
+.purchase-qr-item-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.purchase-qr-item-price {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.purchase-qr-code-wrapper {
+  background: var(--background-gray);
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purchase-qr-instruction {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
+}
+
+
+

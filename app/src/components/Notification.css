@@ -1,0 +1,86 @@
+.notification {
+  position: fixed;
+  top: calc(20px + env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  animation: slideDown 0.3s ease-out;
+  max-width: 90vw;
+  width: 100%;
+  max-width: 400px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.notification-content {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.notification-content:active {
+  transform: scale(0.98);
+}
+
+.notification-error {
+  border-color: var(--error);
+  background: #FFEBEE;
+}
+
+.notification-success {
+  border-color: var(--success);
+  background: #E8F5E9;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-error .notification-icon {
+  color: var(--error);
+}
+
+.notification-success .notification-icon {
+  color: var(--success);
+}
+
+.notification-message {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.notification-error .notification-message {
+  color: var(--error);
+}
+
+.notification-success .notification-message {
+  color: var(--success);
+}
+
+
+

@@ -1,0 +1,322 @@
+.venue-menu {
+  height: 100%;
+  max-height: 100%;
+  padding: 20px 16px;
+  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  padding-top: calc(20px + env(safe-area-inset-top));
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: var(--background-gray);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.venue-menu-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.venue-menu-header.happy-hour {
+  border-color: #9c27b0;
+  animation: happyHourPulse 2s ease-in-out infinite;
+}
+
+@keyframes happyHourPulse {
+  0%, 100% {
+    border-color: #9c27b0;
+  }
+  50% {
+    border-color: #ba68c8;
+  }
+}
+
+.lightning-bolts-menu {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 90px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.lightning-bolt-menu {
+  position: absolute;
+  color: #9c27b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 3px rgba(156, 39, 176, 0.4));
+  animation: lightningFlash 1.5s ease-in-out infinite;
+}
+
+.lightning-bolt-menu-1 {
+  left: 5px;
+  top: -8px;
+  transform: translateX(-50%) rotate(-18deg);
+  animation-delay: 0s;
+}
+
+.lightning-bolt-menu-2 {
+  left: 50%;
+  top: -12px;
+  transform: translateX(-50%) rotate(0deg);
+  animation-delay: 0.5s;
+}
+
+.lightning-bolt-menu-3 {
+  right: 5px;
+  top: -8px;
+  transform: translateX(50%) rotate(18deg);
+  animation-delay: 1s;
+}
+
+@keyframes lightningFlash {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 2px rgba(156, 39, 176, 0.3));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(156, 39, 176, 0.7));
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 2px rgba(156, 39, 176, 0.3));
+  }
+}
+
+.venue-menu-back {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.venue-menu-back:hover {
+  background: var(--background-gray);
+  border-color: var(--primary-color);
+}
+
+.venue-menu-back:active {
+  transform: scale(0.95);
+}
+
+.venue-menu-title-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.venue-menu-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.venue-menu-address {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.venue-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.menu-category {
+  animation: categoryFadeIn 0.3s ease-out both;
+}
+
+.menu-category:nth-child(1) { animation-delay: 0.05s; }
+.menu-category:nth-child(2) { animation-delay: 0.1s; }
+.menu-category:nth-child(3) { animation-delay: 0.15s; }
+.menu-category:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes categoryFadeIn {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
+    
+  }
+}
+
+.menu-category-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+  position: relative;
+}
+
+.menu-category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-item:hover {
+  
+  border-color: var(--primary-color);
+}
+
+.menu-item:active {
+  transform: scale(0.98);
+}
+
+.menu-item-image-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--background-gray);
+  
+  position: relative;
+  z-index: 1;
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-item:active .menu-item-image {
+  transform: scale(1.02);
+}
+
+.menu-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-item-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.menu-item-price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: flex-start;
+}
+
+.menu-item-points {
+  font-size: 15px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.menu-item-insufficient {
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.menu-item-disabled {
+  opacity: 0.6;
+}
+
+.back-button-menu {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  margin-top: 20px;
+}
+
+.back-button-menu:hover {
+  background: var(--background-gray);
+  border-color: var(--primary-color);
+}
+
+.back-button-menu:active {
+  transform: scale(0.95);
+}
+
+
+

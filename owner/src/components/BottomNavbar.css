@@ -1,0 +1,71 @@
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border-top: 2px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  padding-top: calc(10px + env(safe-area-inset-top));
+  z-index: 100;
+  min-height: calc(60px + env(safe-area-inset-bottom));
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
+}
+
+.nav-item:active {
+  background: var(--background-gray);
+}
+
+.nav-item svg {
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item.active svg {
+  color: var(--primary-color);
+}
+
+.nav-item span {
+  margin-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+
+

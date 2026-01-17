@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Цветовая палитра из SVG монетки (темнее) */
+  --primary-color: #6B7FE8;
+  --primary-hover: #5A6FD6;
+  --primary-light: #E0E4FF;
+  --background: #F5F3ED;
+  --background-gray: #EDEBE5;
+  --surface: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border: #6B7FE8;
+  --border-light: #B8C4FF;
+  --success: #00C853;
+  --error: #E53935;
+  --warning: #FF9800;
+  --shadow: transparent;
+  --shadow-hover: transparent;
+  
+  /* Карточки */
+  --card-bg: #F5F3ED;
+  --card-border: #6B7FE8;
+  --card-shadow: none;
+  --card-shadow-hover: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding: 0;
+  margin: 0;
+}
+
+/* Разрешаем выделение текста только в нужных местах */
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Предотвращение горизонтальной прокрутки */
+* {
+  max-width: 100%;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-first media queries */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 769px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+
+
