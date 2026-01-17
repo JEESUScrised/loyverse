@@ -4,7 +4,7 @@ function BottomNavbar({ currentPath, onNavigate }) {
   return (
     <nav className="bottom-navbar">
       <button
-        className={`nav-item ${currentPath === '/dashboard' ? 'active' : ''}`}
+        className={`nav-item ${currentPath === '/dashboard' || currentPath === '/' ? 'active' : ''}`}
         onClick={() => onNavigate('/dashboard')}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

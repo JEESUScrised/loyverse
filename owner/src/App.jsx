@@ -258,7 +258,8 @@ function AppContent() {
     )
   }
 
-  const showNavbar = venueId && location.pathname !== '/register' && location.pathname !== '/'
+  // Показываем навбар на всех страницах, кроме регистрации, если есть venueId
+  const showNavbar = venueId && location.pathname !== '/register'
 
   return (
     <div className="app">
