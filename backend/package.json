@@ -8,7 +8,8 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "setup-mini-apps": "node setup-mini-apps.js",
-    "setup-mini-apps-remote": "node ../setup-mini-apps-remote.js"
+    "setup-mini-apps-remote": "node ../setup-mini-apps-remote.js",
+    "remove-pro": "node remove-pro-subscription.js"
   },
   "dependencies": {
     "better-sqlite3": "^12.6.0",
