@@ -268,10 +268,14 @@ app.post('/api/owners/auth', (req, res) => {
     let owner = db.prepare('SELECT * FROM owners WHERE telegramId = ?').get(telegramId)
     
     if (!owner) {
+      // Create owner with pro subscription (1 year)
+      const endDate = new Date()
+      endDate.setDate(endDate.getDate() + 365) // 1 year
+      
       db.prepare(`
-        INSERT INTO owners (telegramId, subscriptionStatus, plan)
-        VALUES (?, 'inactive', 'start')
-      `).run(telegramId)
+        INSERT INTO owners (telegramId, subscriptionStatus, subscriptionEndDate, plan)
+        VALUES (?, 'active', ?, 'pro')
+      `).run(telegramId, endDate.toISOString())
       owner = db.prepare('SELECT * FROM owners WHERE telegramId = ?').get(telegramId)
     }
     
